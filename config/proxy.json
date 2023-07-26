@@ -1,0 +1,31 @@
+{
+  "host": "127.0.0.1",
+  "port": 7890,
+  "server": [
+    {
+      "enableProxy": false,
+      "server": "asia",
+      "type": "api"
+    },
+    {
+      "enableProxy": false,
+      "server": "eu",
+      "type": "api"
+    },
+    {
+      "enableProxy": false,
+      "server": "ru",
+      "type": "vortex"
+    },
+    {
+      "enableProxy": false,
+      "server": "na",
+      "type": "api"
+    },
+    {
+      "enableProxy": false,
+      "server": "cn",
+      "type": "vortex"
+    }
+  ]
+}

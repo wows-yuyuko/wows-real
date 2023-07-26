@@ -1,0 +1,54 @@
+[
+  {
+    "nation": "Commonwealth",
+    "cn": "英联邦"
+  },
+  {
+    "nation": "Europe",
+    "cn": "欧洲"
+  },
+  {
+    "nation": "France",
+    "cn": "法国"
+  },
+  {
+    "nation": "Germany",
+    "cn": "德国"
+  },
+  {
+    "nation": "Italy",
+    "cn": "意大利"
+  },
+  {
+    "nation": "Japan",
+    "cn": "日本"
+  },
+  {
+    "nation": "Pan_America",
+    "cn": "泛美"
+  },
+  {
+    "nation": "Pan_Asia",
+    "cn": "泛亚"
+  },
+  {
+    "nation": "United_Kingdom",
+    "cn": "英国"
+  },
+  {
+    "nation": "USA",
+    "cn": "美国"
+  },
+  {
+    "nation": "Russia",
+    "cn": "苏联"
+  },
+  {
+    "nation": "Netherlands",
+    "cn": "荷兰"
+  },
+  {
+    "nation": "Spain",
+    "cn": "西班牙"
+  }
+]

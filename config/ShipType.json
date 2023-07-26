@@ -1,0 +1,26 @@
+[
+  {
+    "shipType": "AirCarrier",
+    "typeName": "航空母舰"
+  },
+  {
+    "shipType": "Battleship",
+    "typeName": "战列舰"
+  },
+  {
+    "shipType": "Destroyer",
+    "typeName": "驱逐舰"
+  },
+  {
+    "shipType": "Cruiser",
+    "typeName": "巡洋舰"
+  },
+  {
+    "shipType": "Submarine",
+    "typeName": "潜艇"
+  },
+  {
+    "shipType": "Auxiliary",
+    "typeName": "辅助航母"
+  }
+]
