@@ -3,6 +3,7 @@ package com.shinoaki.wows.real;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.shinoaki.wows.api.utils.JsonUtils;
 import com.shinoaki.wows.real.config.Config;
+import com.shinoaki.wows.real.http.HttpService;
 import com.shinoaki.wows.real.mqtt.MqttService;
 import com.shinoaki.wows.real.timer.ServerTimer;
 import com.shinoaki.wows.real.ws.server.WowsWebsocket;
@@ -13,6 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.net.InetSocketAddress;
 
 /**
  * @author Xun
@@ -34,8 +36,15 @@ public class Main {
             });
             MqttService service = new MqttService(Config.mqttConfig(json));
             service.connect();
-            WowsWebsocket websocket = new WowsWebsocket();
-            websocket.start(config.wsPort(), "/yuyuko");
+            if (config.ws()) {
+                WowsWebsocket websocket = new WowsWebsocket();
+                websocket.start(config.wsPort(), "/yuyuko");
+            }
+            if (config.http()) {
+                HttpService httpService = new HttpService(new InetSocketAddress(config.httpPort()));
+                log.info("http服务启动! port={}", config.httpPort());
+                httpService.start();
+            }
             log.info("初始化成功...");
             //服务配置
             ServerTimer timer = new ServerTimer();

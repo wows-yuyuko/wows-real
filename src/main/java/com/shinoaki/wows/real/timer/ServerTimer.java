@@ -60,12 +60,7 @@ public class ServerTimer {
     }
 
     public void timerSubTopic(MqttService service) {
-        List<Long> longs = SubUserCache.allAccountId();
-        if (longs.isEmpty()) {
-            EXECUTOR_SERVICE.scheduleWithFixedDelay(service::onMessage, 10, 60, TimeUnit.SECONDS);
-        } else {
-            EXECUTOR_SERVICE.scheduleWithFixedDelay(service::onMessage, 1, 5, TimeUnit.MINUTES);
-        }
+        EXECUTOR_SERVICE.scheduleWithFixedDelay(service::onMessage, 1, 5, TimeUnit.MINUTES);
     }
 
 

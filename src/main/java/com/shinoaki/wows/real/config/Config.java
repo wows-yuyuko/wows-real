@@ -14,7 +14,7 @@ import java.util.UUID;
  * @author Xun
  * create or update time = 2023/7/26 18:21 星期三
  */
-public record Config(int wsPort) {
+public record Config(int wsPort, boolean ws, int httpPort, boolean http) {
 
 
     public static MqttConfig mqttConfig(JsonUtils json) throws IOException {

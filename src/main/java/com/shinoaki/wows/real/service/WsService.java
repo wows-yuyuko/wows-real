@@ -8,6 +8,7 @@ import com.shinoaki.wows.api.type.WowsBattlesType;
 import com.shinoaki.wows.api.utils.JsonUtils;
 import com.shinoaki.wows.real.cache.SubUserCache;
 import com.shinoaki.wows.real.config.type.DataType;
+import com.shinoaki.wows.real.http.HttpService;
 import com.shinoaki.wows.real.wows.AccountInfo;
 import com.shinoaki.wows.real.wows.PlayerBattleInfo;
 import com.shinoaki.wows.real.wows.WowsCache;
@@ -110,6 +111,8 @@ public class WsService {
                         var pr = PrInfo.pr(PrUtils.prShip(ship, WowsCache.getPr(ship.shipId())));
                         UserShipInfoView view = new UserShipInfoView(userInfo, WowsCache.getShipMap(ship.shipId()), k, pr, BattleInfoData.to(ship));
                         sendMsg(accountId, new BaseWsPackage<>(WsPathType.user_real_info.name(), view));
+                        //数据推送至http服务接口
+                        HttpService.queueUserPlayOne(accountId, view);
                     }
                 }
             } catch (IOException e) {
@@ -120,8 +123,8 @@ public class WsService {
 
     private static void sendMsg(long accountId, BaseWsPackage<?> baseWsPackage) throws JsonProcessingException {
         JsonUtils json = new JsonUtils();
-        log.info("{} 推送消息... {}", accountId, baseWsPackage.getPath());
-        for (var key : SubUserCache.check(accountId).keySet()) {
+        for (var key : SubUserCache.checkWs(accountId).keySet()) {
+            log.info("{}-{} ws推送消息... {}", key, accountId, baseWsPackage.getPath());
             sendMsg(key, json.toJson(baseWsPackage));
         }
     }

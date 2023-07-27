@@ -114,7 +114,7 @@ public class MqttService {
             try {
                 PlayerBattleInfo battleInfo = json.parse(new String(message.getPayload()), PlayerBattleInfo.class);
                 for (var info : battleInfo.infoList()) {
-                    var map = SubUserCache.check(info.accountId());
+                    var map = SubUserCache.checkWs(info.accountId());
                     if (!map.isEmpty()) {
                         WsService.playerGame(battleInfo, map);
                     }

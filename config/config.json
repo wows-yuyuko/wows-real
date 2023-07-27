@@ -1,3 +1,6 @@
 {
-  "wsPort": 6677
+  "wsPort": 6677,
+  "ws": true,
+  "httpPort": 8080,
+  "http": true
 }
