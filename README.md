@@ -1,4 +1,7 @@
 # wows-real
+
+### 该项目使用了loom 启动时请启用预览功能,jdk21除外
+
 账号战绩结算推送/对局信息推送
 
 http/ws 端口配置和是否启用在config文件夹下面的config.json
